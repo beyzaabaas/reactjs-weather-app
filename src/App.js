@@ -31,32 +31,32 @@ function App() {
 <div className="container">
   <div className="top">
     <div className="location">
-      <p>Dallas</p>
+      <p>{data.name}</p>
     </div>
     <div className="temp">
-      <h1>60 F</h1>
+    {data.main ? <h1>{data.main.temp}°C</h1> : null}
     </div>
     <div className="description">
-      <p>
-        Clouds
-      </p>
+    {data.weather ? <p>{data.weather[0].main}</p> : null}
     </div>
   </div>
-  <div className="bottom">
+  {
+    data.name!=undefined &&
+    <div className="bottom">
     <div className="feels">
-      <p className="bold">65F</p>
+    {data.main ? <p className="bold">{data.main.feels_like}°C</p> : null}
       <p>Feels Like</p>
     </div>
     <div className="humidty">
-      <p className="bold">20F</p>
-      <p>Humidty</p>
+    {data.main ? <p className="bold">{data.main.humidity}%</p> : null}
+      <p>Humidity</p>
     </div>
     <div className="wind">
-      
-      <p className="bold">12mph</p>
+    {data.wind ? <p className="bold">{data.wind.speed} m/s</p> : null}
       <p>Wind Speed</p>
     </div>
   </div>
+  }
 </div>
     </div>
   );
