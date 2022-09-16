@@ -6,8 +6,6 @@ function App() {
   const [location, setLocation] = useState("");
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_API_KEY}&units=metric`;
-
-  console.log(process.env.REACT_APP_API_KEY);
   const searchLocation = (event) => {
     if (event.key === "Enter") {
       axios.get(url).then((response) => {
@@ -28,7 +26,7 @@ function App() {
           onKeyPress={searchLocation}
         />
       </div>
-      
+
       <div className="container">
         <div className="top">
           <div className="location">
